@@ -123,18 +123,6 @@ function parseConfig() {
   }
 }
 
-async function sendWebhook(targetEmail, newPassword) {
-  const embed = new MessageBuilder()
-  .addField("Email", "||" + targetEmail + "||", true)
-  .addField("Password", "||" + newPassword + "||", true)
-  .setColor("#d2738a")
-  .setTitle("Account successfully unlocked!")
-
-  discordWebhook.setUsername("resetScript");
-  discordWebhook.setAvatar("https://i.imgur.com/a2v6qQX.png");
-  discordWebhook.send(embed);
-}
-
 async function errorFunction(error) {
   fs.appendFileSync('errorLog.txt', (error.stack + "\n"));
   prompt('');
